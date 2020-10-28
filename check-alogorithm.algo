@@ -1,0 +1,41 @@
+ALGORITHM read_sentence
+VAR
+sentence:STRING ='';
+sentence_lenght:INTEGER;
+nb_words:INTEGER=0;
+nb_vowels:INTEGER=0;
+ch:CHAR;
+i : INTEGER;
+  
+BEGIN
+REPEAT
+        read(ch);
+        sentence+=ch;
+        sentence_lenght=sentence_lenght + 1;
+UNTIL (ch=='.')
+ 
+
+FOR i FROM 0 TO sentence_lenght-1 STEP 1  DO 
+IF (sentence[i] == ' ' OR sentence[i] == '.' )THEN
+   nb_words := nb_words + 1;
+END_IF   
+SWITCH ( sentence[i] ) DO
+            case 'a' : nb_vowels++; BREAK;
+            case 'e' : nb_vowels++; BREAK;
+            case 'i' : nb_vowels++; BREAK;
+            case 'o' : nb_vowels++; BREAK;
+            case 'u' : nb_vowels++; BREAK;
+            case 'y' : nb_vowels++; BREAK;
+            case 'A' : nb_vowels++; BREAK;
+            case 'E' : nb_vowels++; BREAK;
+            case 'I' : nb_vowels++; BREAK;
+            case 'O' : nb_vowels++; BREAK;
+            case 'U' : nb_vowels++; BREAK;
+            case 'Y' : nb_vowels++; BREAK;
+        END_SWITCH
+END_FOR
+
+ Write(sentence_lenght);
+ Write(nb_words);
+ Write(nb_vowels);
+END
